@@ -1,6 +1,10 @@
 # selenium-python-docs-zh
-selenium-python-官方文档的英文版翻译
-翻译原文请查看Wiki
-该代码包含了一些selenium的测试示例，可以下载使用
+selenium-python-官方文档翻译
+该文档托管在read the docs
+文档地址：
+http://selenium-python-zh.readthedocs.io/en/latest/
 
-该项目在不断构件中，现在内容还比较少，欢迎Fork
+翻译工作还在进行中，目前还有最后3个章节未翻译，欢迎感兴趣的朋友加入翻译工作
+
+有任何问题可以邮件于我：
+caoruiy@qq.com
