@@ -1,0 +1,295 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. 安装 &mdash; Selenium Python Bindings 2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Selenium Python Bindings 2 documentation" href="index.html"/>
+        <link rel="next" title="2. 快速入门" href="getting-started.html"/>
+        <link rel="prev" title="Selenium with Python中文翻译文档" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Selenium Python Bindings
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. 安装</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1.1. 安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-bindings-for-selenium">1.2. 下载 Python bindings for Selenium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#windows">1.3. Windows用户的详细说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#selenium">1.4. 下载 Selenium 服务器</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">2. 快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="navigating.html">3. 打开一个页面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="locating-elements.html">4. 查找元素</a></li>
+<li class="toctree-l1"><a class="reference internal" href="waits.html">5. 等待页面加载完成(Waits)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="page-objects.html">6. 页面对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">7. WebDriver API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">8. 附录：常见问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Selenium Python Bindings</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>1. 安装</li>
+    <li class="wy-breadcrumbs-aside">
+      
+          
+          <a href="_sources/installation.txt" rel="nofollow"> View page source</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installation">
+<span id="id1"></span><h1>1. 安装<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>1.1. 安装<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Selenium Python bindings 提供了一个简单的API，让你使用Selenium WebDriver来编写功能/校验测试。
+通过Selenium Python的API，你可以非常直观的使用Selenium WebDriver的所有功能。</p>
+<p>Selenium Python bindings 使用非常简洁方便的API让你去使用像Firefox, IE, Chrome, Remote等等
+这样的Selenium WebDrivers（Selenium web驱动器）。当前支持的版本为 2.7, 3.2及以上。</p>
+<p>本文的用来讲解说明Selenium 2 WebDriver的API，此文档不包含Selenium 1 / Selenium RC的文档。</p>
+</div>
+<div class="section" id="python-bindings-for-selenium">
+<h2>1.2. 下载 Python bindings for Selenium<a class="headerlink" href="#python-bindings-for-selenium" title="Permalink to this headline">¶</a></h2>
+<p>可以从PyPI的官方库中下载该selenium支持库， <a class="reference external" href="https://pypi.python.org/pypi/selenium">点此下载</a>  当然，
+更好的方法当然是使用 <a class="reference external" href="https://pip.pypa.io/en/latest/installing/">pip</a> 命令来安装selenium包。
+Python3.5的 <a href="#id4"><span class="problematic" id="id5">`</span></a>标准库 &lt;<a class="reference external" href="https://docs.python.org/3.5/installing/index.html">https://docs.python.org/3.5/installing/index.html</a>&gt;`_中包含pip命令。
+使用 <a href="#id6"><span class="problematic" id="id7">`</span></a>pip`命令,你可以像下面这样安装 selenium:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">selenium</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>使用Python2.x版本的用户可以手动安装pip或者easy_install，下面是easy_install 的安装方法:</p>
+<p class="last">easy_install selenium</p>
+</div>
+<p>你可以考虑使用`virtualenv &lt;<a class="reference external" href="http://www.virtualenv.org">http://www.virtualenv.org</a>&gt;`_
+创建独立的Python环境。Python3.5中`pyvenv
+&lt;<a class="reference external" href="https://docs.python.org/3.5/using/scripts.html#scripts-pyvenv">https://docs.python.org/3.5/using/scripts.html#scripts-pyvenv</a>&gt;`_
+可以提供几乎一样的功能。</p>
+</div>
+<div class="section" id="windows">
+<h2>1.3. Windows用户的详细说明<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">请在有网的情况下执行该安装命令。</p>
+</div>
+<ol class="arabic">
+<li><p class="first">安装Python3.5：<a class="reference external" href="http://www.python.org/download">官方下载页</a>.</p>
+</li>
+<li><p class="first">从开始菜单点击运行（或者`Windows+R`）输入`cmd`,然后执行下列命令安装:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">Python35</span>\<span class="n">Scripts</span>\<span class="n">pip</span><span class="o">.</span><span class="n">exe</span> <span class="n">install</span> <span class="n">selenium</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>现在你可以使用Python运行测试脚本了。
+例如：如果你创建了一个selenium的基本示例并且保存在了``C:my_selenium_script.py``，你可以如下执行:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">Python35</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span>\<span class="n">my_selenium_script</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="selenium">
+<h2>1.4. 下载 Selenium 服务器<a class="headerlink" href="#selenium" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">如果你想使用一个远程的WebDriver，Selenium服务是唯一的依赖，
+参见 <a class="reference internal" href="getting-started.html#selenium-remote-webdriver"><span class="std std-ref">使用远程 Selenium WebDriver</span></a> 获得更多细节。
+如果你只是刚刚开始学习使用Selenium，你可以忽略该章节直接开始下一节。</p>
+</div>
+<p>Selenium server是一个JAVA工程，Java Runtime Environment (JRE) 1.6或者更高的版本是推荐的运行环境。</p>
+<p>你可以在 <a class="reference external" href="http://seleniumhq.org/download/">该下载页</a>
+下载2.x的Selenium server，这个文件大概长成这个样子：<code class="docutils literal"><span class="pre">selenium-server-standalone-2.x.x.jar</span></code>，
+你可以去下载最新版本的2.x server。</p>
+<p>如果你还没有安装Java Runtime Environment (JRE)的话，
+呢，<a class="reference external" href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">在这下载</a>，
+如果你是有的是GNU/Linux系统，并且巧了，你还有root权限，你还可以使用操作系统指令去安装JRE。</p>
+<p>如果你把`java`命令放在了PATH(环境变量)中的话，使用下面命令安装:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">java</span> <span class="o">-</span><span class="n">jar</span> <span class="n">selenium</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="n">standalone</span><span class="o">-</span><span class="mf">2.</span><span class="n">x</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">jar</span>
+</pre></div>
+</div>
+<p>当然了，把``2.x.x``换成你下载的实际版本就可以了。</p>
+<p>如果是不是root用户你或者没有把JAVA放到PATH中，
+你可以使用绝对路径或者相对路径的方式来使用命令，
+这个命令大概长这样子:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">java</span> <span class="o">-</span><span class="n">jar</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">selenium</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="n">standalone</span><span class="o">-</span><span class="mf">2.</span><span class="n">x</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">jar</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="getting-started.html" class="btn btn-neutral float-right" title="2. 快速入门" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Selenium with Python中文翻译文档" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2011-2014, Baiju Muthukadan.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

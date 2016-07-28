@@ -1,0 +1,413 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. 打开一个页面 &mdash; Selenium Python Bindings 2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Selenium Python Bindings 2 documentation" href="index.html"/>
+        <link rel="next" title="4. 查找元素" href="locating-elements.html"/>
+        <link rel="prev" title="2. 快速入门" href="getting-started.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Selenium Python Bindings
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">2. 快速入门</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. 打开一个页面</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">3.1. 与页面交互</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">3.2. 填写表格</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">3.3. 拖放</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">3.4. 在不同的窗口和框架之间移动</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">3.5. 弹出对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">3.6. 访问浏览器历史记录</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cookies">3.7. 操作Cookies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="locating-elements.html">4. 查找元素</a></li>
+<li class="toctree-l1"><a class="reference internal" href="waits.html">5. 等待页面加载完成(Waits)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="page-objects.html">6. 页面对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">7. WebDriver API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">8. 附录：常见问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Selenium Python Bindings</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>3. 打开一个页面</li>
+    <li class="wy-breadcrumbs-aside">
+      
+          
+          <a href="_sources/navigating.txt" rel="nofollow"> View page source</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="navigating">
+<span id="id1"></span><h1>3. 打开一个页面<a class="headerlink" href="#navigating" title="Permalink to this headline">¶</a></h1>
+<p>你想做的第一件事也许是使用WebDriver打开一个链接。
+常规的方法是调用 <code class="docutils literal"><span class="pre">get</span></code> 方法:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://www.google.com&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>WebDriver 将等待，直到页面完全加载完毕（其实是等到 <code class="docutils literal"><span class="pre">onload</span></code> 方法执行完毕），
+然后返回继续执行你的脚本。
+值得注意的是，如果你的页面使用了大量的Ajax加载，
+WebDriver可能不知道什么时候页面已经完全加载。
+如果你想确保也main完全加载完毕，可以使用:ref:<cite>waits &lt;waits&gt;</cite></p>
+<div class="section" id="id2">
+<h2>3.1. 与页面交互<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>只是打开页面其实并没有什么卵用。我们真正想要的是与页面做交互。
+更具体地说，对于一个页面中的HTML元素，首先我们要找到他。WebDriver
+提供了大量的方法帮助你去查找元素，例如：已知一个元素定义如下:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;passwd&quot;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;passwd-id&quot;</span> <span class="o">/&gt;</span>
+</pre></div>
+</div>
+<p>你可以通过下面的方法查找他:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">element</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s2">&quot;passwd-id&quot;</span><span class="p">)</span>
+<span class="n">element</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s2">&quot;passwd&quot;</span><span class="p">)</span>
+<span class="n">element</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s2">&quot;//input[@id=&#39;passwd-id&#39;]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>你还可以通过链接的文本查找他，需要注意的是，这个文本必须完全匹地配。
+当你使用`XPATH`时，你必须注意，如果匹配超过一个元素，只返回第一个元素。
+如果上面也没找到，将会抛出 <a href="#id3"><span class="problematic" id="id4">``</span></a>NoSuchElementException``异常。</p>
+<p>WebDriver有一个&#8221;基于对象&#8221;的API; 我们使用相同的接口表示所有类型的元素。
+这就意味着，当你打开你的IDE的自动补全的时候，你会有很多可以调用的方法。
+但是并不是所有的方法都是有意义或是有效的。不过不要担心！
+当你调用一些毫无意义的方法时，WebDriver会尝试去做一些正确的事情（例如你对一个&#8221;meta&#8221;
+元素调用&#8221;setSelected()&#8221;方法的时候）。</p>
+<p>所以，当你拿到ige元素时，你能做什么呢？首先，你可能会想在文本框中输入一些内容:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">element</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s2">&quot;some text&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>你还可以通过&#8221;Keys&#8221;类来模式输入方向键:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">element</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s2">&quot; and some&quot;</span><span class="p">,</span> <span class="n">Keys</span><span class="o">.</span><span class="n">ARROW_DOWN</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>对于任何元素，他可能都叫 <cite>send_keys</cite> ，这就使得它可以测试键盘快捷键，
+比如当你使用Gmail的时候。但是有一个副作用是当你输入一些文本时，这些
+输入框中原有的文本不会被自动清除掉，相反，你的输入会继续添加到已存在文本之后。
+你可以很方便的使用 <cite>clear</cite> 方法去清除input或者textarea元素中的内容:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">element</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>3.2. 填写表格<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>我们已经知道如何在input或textarea元素中输入内容，但是其他元素怎么办？
+你可以“切换”下拉框的状态，你可以使用``setSelected``方法去做一些事情，比如
+选择下拉列表，处理`SELECT`元素其实没有那么麻烦:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">element</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s2">&quot;//select[@name=&#39;name&#39;]&quot;</span><span class="p">)</span>
+<span class="n">all_options</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">find_elements_by_tag_name</span><span class="p">(</span><span class="s2">&quot;option&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">option</span> <span class="ow">in</span> <span class="n">all_options</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value is: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">option</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">))</span>
+    <span class="n">option</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>上面这段代码将会寻找页面第一个 &#8220;SELECT&#8221; 元素, 并且循环他的每一个OPTION元素，
+打印从utamen的值，然后按顺序都选中一遍。</p>
+<p>正如你说看到的那样，这不是处理 SELECT 元素最好的方法。WebDriver的支持类包括一个叫做
+<a href="#id6"><span class="problematic" id="id7">``</span></a>Select``的类，他提供有用的方法处理这些内容:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">selenium.webdriver.support.ui</span> <span class="k">import</span> <span class="n">Select</span>
+<span class="n">select</span> <span class="o">=</span> <span class="n">Select</span><span class="p">(</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">))</span>
+<span class="n">select</span><span class="o">.</span><span class="n">select_by_index</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+<span class="n">select</span><span class="o">.</span><span class="n">select_by_visible_text</span><span class="p">(</span><span class="s2">&quot;text&quot;</span><span class="p">)</span>
+<span class="n">select</span><span class="o">.</span><span class="n">select_by_value</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>WebDriver 也提供一些有用的方法来取消选择已经选择的元素:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="o">=</span> <span class="n">Select</span><span class="p">(</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">))</span>
+<span class="n">select</span><span class="o">.</span><span class="n">deselect_all</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>这将取消选择所以的OPTION。</p>
+<p>假设在一个案例中，我们需要列出所有已经选择的选项，Select类提供了方便的方法来实现这一点:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="o">=</span> <span class="n">Select</span><span class="p">(</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s2">&quot;xpath&quot;</span><span class="p">))</span>
+<span class="n">all_selected_options</span> <span class="o">=</span> <span class="n">select</span><span class="o">.</span><span class="n">all_selected_options</span>
+</pre></div>
+</div>
+<p>获得所以选项:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">options</span> <span class="o">=</span> <span class="n">select</span><span class="o">.</span><span class="n">options</span>
+</pre></div>
+</div>
+<p>一旦你填写完整个表单，你应该想去提交它，有一个方法就是去找到一个“submit”
+按钮然后点击它:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Assume the button has the ID &quot;submit&quot; :)</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s2">&quot;submit&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>或者，WebDriver对每一个元素都有一个叫做 &#8220;submit&#8221; 的方法，如果你在一个表单内的
+元素上使用该方法，WebDriver会在DOM树上就近找到最近的表单，返回提交它。
+如果调用的元素不再表单内，将会抛出``NoSuchElementException``异常:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">element</span><span class="o">.</span><span class="n">submit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>3.3. 拖放<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>您可以使用拖放，无论是移动一个元素，或放到另一个元素内:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">element</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s2">&quot;source&quot;</span><span class="p">)</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s2">&quot;target&quot;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">selenium.webdriver</span> <span class="k">import</span> <span class="n">ActionChains</span>
+<span class="n">action_chains</span> <span class="o">=</span> <span class="n">ActionChains</span><span class="p">(</span><span class="n">driver</span><span class="p">)</span>
+<span class="n">action_chains</span><span class="o">.</span><span class="n">drag_and_drop</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>3.4. 在不同的窗口和框架之间移动<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>对于现在的web应用来说，没有任何frames或者只包含一个window窗口是比较罕见的。
+WebDriver 支持在不同的窗口之间移动，只需要调用``switch_to_window``方法即可:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">driver</span><span class="o">.</span><span class="n">switch_to_window</span><span class="p">(</span><span class="s2">&quot;windowName&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>所有的 <code class="docutils literal"><span class="pre">driver</span></code> 将会指向当前窗口，但是你怎么知道当前窗口的名字呢，查看打开他的javascript或者连接代码:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;somewhere.html&quot;</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;windowName&quot;</span><span class="o">&gt;</span><span class="n">Click</span> <span class="n">here</span> <span class="n">to</span> <span class="nb">open</span> <span class="n">a</span> <span class="n">new</span> <span class="n">window</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>或者，你可以在&#8221;switch_to_window()&#8221;中使用&#8221;窗口句柄&#8221;来打开它，
+知道了这些，你就可以迭代所有已经打开的窗口了:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">handle</span> <span class="ow">in</span> <span class="n">driver</span><span class="o">.</span><span class="n">window_handles</span><span class="p">:</span>
+    <span class="n">driver</span><span class="o">.</span><span class="n">switch_to_window</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>你还可以在不同的frame中切换 (or into iframes):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">driver</span><span class="o">.</span><span class="n">switch_to_frame</span><span class="p">(</span><span class="s2">&quot;frameName&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>通过“.”操作符你还可以获得子frame，并通过下标指定任意frame，就像这样:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">driver</span><span class="o">.</span><span class="n">switch_to_frame</span><span class="p">(</span><span class="s2">&quot;frameName.0.child&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>如何获取名叫“frameName”的frame中名叫 “child”的子frame呢？
+<strong>来自*top*frame的所有的frame都会被评估</strong>
+（<strong>All frames are evaluated as if from *top*.</strong>）</p>
+<p>一旦我们完成了frame中的工作，我们可以这样返回父frame:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">driver</span><span class="o">.</span><span class="n">switch_to_default_content</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>3.5. 弹出对话框<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>Selenium WebDriver 内置了对处理弹出对话框的支持。
+在你的某些动作之后可能会触发弹出对话框，你可以像下面这样访问对话框:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">alert</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">switch_to_alert</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>它将返回当前打开的对话框对象。使用此对象，您现在可以接受、排除、读取其内容，
+甚至可以在prompt对话框中输入(译注：prompt()是对话框的一种，不同于alert()对话框，不同点可以自行百度)。
+这个接口对alert, confirm， prompt 对话框效果相同。
+参考相关的API文档获取更多信息。</p>
+</div>
+<div class="section" id="id11">
+<h2>3.6. 访问浏览器历史记录<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>在之前的文章中，我们使用``get``命令打开一个页面, (
+<code class="docutils literal"><span class="pre">driver.get(&quot;http://www.example.com&quot;)</span></code>)，WebDriver有很多更小的，以任务为导向的接口，
+navigation就是一个有用的任务，打开一个页面你可以使用`get`:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://www.example.com&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>在浏览历史中前进和后退你可以使用:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">driver</span><span class="o">.</span><span class="n">forward</span><span class="p">()</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">back</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>请注意，这个功能完全取决于底层驱动程序。当你调用这些方法的时候，很有可能会发生意想不到的事情，
+如果你习惯了浏览器的这些行为于其他的不同。（原文：It’s just possible that something unexpected may happen
+when you call these methods if you’re used to the behaviour of one browser over another.）</p>
+</div>
+<div class="section" id="cookies">
+<h2>3.7. 操作Cookies<a class="headerlink" href="#cookies" title="Permalink to this headline">¶</a></h2>
+<p>在我们结束这一节之前，或许你对如何操作Cookies可能会很感兴趣。
+首先，你需要打开一个也面，因为Cookie是在某个域名下才生效的:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">::</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p># 打开一个页面
+driver.get(&#8220;<a class="reference external" href="http://www.example.com">http://www.example.com</a>&#8221;)</p>
+<p># 现在设置Cookies，这个cookie在域名根目录下（&#8221;/&#8221;）生效
+cookie = {‘name’ : ‘foo’, ‘value’ : ‘bar’}
+driver.add_cookie(cookie)</p>
+<p># 现在获取所有当前URL下可获得的Cookies
+driver.get_cookies()</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="locating-elements.html" class="btn btn-neutral float-right" title="4. 查找元素" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="getting-started.html" class="btn btn-neutral" title="2. 快速入门" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2011-2014, Baiju Muthukadan.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

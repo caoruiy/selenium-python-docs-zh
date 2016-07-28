@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5. 等待页面加载完成(Waits) &mdash; Selenium Python Bindings 2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Selenium Python Bindings 2 documentation" href="index.html"/>
+        <link rel="next" title="6. 页面对象" href="page-objects.html"/>
+        <link rel="prev" title="4. 查找元素" href="locating-elements.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Selenium Python Bindings
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">2. 快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="navigating.html">3. 打开一个页面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="locating-elements.html">4. 查找元素</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. 等待页面加载完成(Waits)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">5.1. 显式等待</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">5.2. 隐式等待</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page-objects.html">6. 页面对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">7. WebDriver API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">8. 附录：常见问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Selenium Python Bindings</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>5. 等待页面加载完成(Waits)</li>
+    <li class="wy-breadcrumbs-aside">
+      
+          
+          <a href="_sources/waits.txt" rel="nofollow"> View page source</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="waits">
+<span id="id1"></span><h1>5. 等待页面加载完成(Waits)<a class="headerlink" href="#waits" title="Permalink to this headline">¶</a></h1>
+<p>现在的大多数的Web应用程序是使用Ajax技术。当一个页面被加载到浏览器时，
+该页面内的元素可以在不同的时间点被加载。这使得定位元素变得困难，
+如果元素不再页面之中，会抛出 <cite>ElementNotVisibleException</cite> 异常。
+使用 waits, 我们可以解决这个问题。waits提供了一些操作之间的时间间隔-
+主要是定位元素或针对该元素的任何其他操作。</p>
+<p>Selenium Webdriver 提供两种类型的waits - 隐式和显式。
+显式等待会让WebDriver等待满足一定的条件以后再进一步的执行。
+而隐式等待让Webdriver等待一定的时间后再才是查找某元素。</p>
+<div class="section" id="id2">
+<h2>5.1. 显式等待<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>显式等待是你在代码中定义等待一定条件发生后再进一步执行你的代码。
+最糟糕的案例是使用time.sleep()，它将条件设置为等待一个确切的时间段。
+这里有一些方便的方法让你只等待需要的时间。WebDriverWait结合ExpectedCondition
+是实现的一种方式。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">selenium</span> <span class="k">import</span> <span class="n">webdriver</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="k">import</span> <span class="n">By</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support.ui</span> <span class="k">import</span> <span class="n">WebDriverWait</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support</span> <span class="k">import</span> <span class="n">expected_conditions</span> <span class="k">as</span> <span class="n">EC</span>
+
+<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Firefox</span><span class="p">()</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://somedomain/url_that_delays_loading&quot;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">element</span> <span class="o">=</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">until</span><span class="p">(</span>
+        <span class="n">EC</span><span class="o">.</span><span class="n">presence_of_element_located</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">&quot;myDynamicElement&quot;</span><span class="p">))</span>
+    <span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">driver</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>在抛出TimeoutException异常之前将等待10秒或者在10秒内发现了查找的元素。
+WebDriverWait 默认情况下会每500毫秒调用一次ExpectedCondition直到结果成功返回。
+ExpectedCondition成功的返回结果是一个布尔类型的true或是不为null的返回值。</p>
+<p><strong>预期的条件</strong></p>
+<p>自动化的Web浏览器中一些常用的预期条件，下面列出的是每一个实现，
+Selenium Python binding都提供了一些方便的方法，这样你就不用去编写
+expected_condition类或是创建至今的工具包去实现他们。
+- title_is
+- title_contains
+- presence_of_element_located
+- visibility_of_element_located
+- visibility_of
+- presence_of_all_elements_located
+- text_to_be_present_in_element
+- text_to_be_present_in_element_value
+- frame_to_be_available_and_switch_to_it
+- invisibility_of_element_located
+- element_to_be_clickable - 显示并可用.
+- staleness_of
+- element_to_be_selected
+- element_located_to_be_selected
+- element_selection_state_to_be
+- element_located_selection_state_to_be
+- alert_is_present</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">selenium.webdriver.support</span> <span class="k">import</span> <span class="n">expected_conditions</span> <span class="k">as</span> <span class="n">EC</span>
+
+<span class="n">wait</span> <span class="o">=</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">element</span> <span class="o">=</span> <span class="n">wait</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">element_to_be_clickable</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span><span class="s1">&#39;someid&#39;</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>expected_conditions 模块提供了一组预定义的条件供WebDriverWait使用。</p>
+</div>
+<div class="section" id="id3">
+<h2>5.2. 隐式等待<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>如果某些元素不是立即可用的，隐式等待是告诉WebDriver去等待一定的时间后去查找元素。
+默认等待时间是0秒，一旦设置该值，隐式等待是设置该WebDriver的实例的生命周期。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">selenium</span> <span class="k">import</span> <span class="n">webdriver</span>
+
+<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Firefox</span><span class="p">()</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># seconds</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://somedomain/url_that_delays_loading&quot;</span><span class="p">)</span>
+<span class="n">myDynamicElement</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s2">&quot;myDynamicElement&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="page-objects.html" class="btn btn-neutral float-right" title="6. 页面对象" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="locating-elements.html" class="btn btn-neutral" title="4. 查找元素" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2011-2014, Baiju Muthukadan.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

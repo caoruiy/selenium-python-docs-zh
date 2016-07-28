@@ -1,0 +1,330 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>8. 附录：常见问题 &mdash; Selenium Python Bindings 2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Selenium Python Bindings 2 documentation" href="index.html"/>
+        <link rel="prev" title="7. WebDriver API" href="api.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Selenium Python Bindings
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">2. 快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="navigating.html">3. 打开一个页面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="locating-elements.html">4. 查找元素</a></li>
+<li class="toctree-l1"><a class="reference internal" href="waits.html">5. 等待页面加载完成(Waits)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="page-objects.html">6. 页面对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">7. WebDriver API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">8. 附录：常见问题</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#chromedriver">8.1. 如何使用 ChromeDriver ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#does-selenium-2-support-xpath-2-0">8.2. Does Selenium 2 support XPath 2.0 ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-scroll-down-to-the-bottom-of-a-page">8.3. How to scroll down to the bottom of a page ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-auto-save-files-using-custom-firefox-profile">8.4. How to auto save files using custom Firefox profile ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-upload-files-into-file-inputs">8.5. How to upload files into file inputs ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-use-firebug-with-firefox">8.6. How to use firebug with Firefox ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-take-screenshot-of-the-current-window">8.7. How to take screenshot of the current window ?</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Selenium Python Bindings</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>8. 附录：常见问题</li>
+    <li class="wy-breadcrumbs-aside">
+      
+          
+          <a href="_sources/faq.txt" rel="nofollow"> View page source</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="faq">
+<span id="id1"></span><h1>8. 附录：常见问题<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h1>
+<p>Another FAQ: <a class="reference external" href="https://github.com/SeleniumHQ/selenium/wiki/Frequently-Asked-Questions">https://github.com/SeleniumHQ/selenium/wiki/Frequently-Asked-Questions</a></p>
+<div class="section" id="chromedriver">
+<h2>8.1. 如何使用 ChromeDriver ?<a class="headerlink" href="#chromedriver" title="Permalink to this headline">¶</a></h2>
+<p>下载最新版本的 <a class="reference external" href="https://sites.google.com/a/chromium.org/chromedriver/downloads">chromedriver</a>.  解压缩这个文件:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">unzip</span> <span class="n">chromedriver_linux32_x</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">zip</span>
+</pre></div>
+</div>
+<p>你应该会看到一个 <code class="docutils literal"><span class="pre">chromedriver</span></code> 的可执行文件.  现在你可以像这样创建一个
+Chrome WebDriver 实例:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="n">executable_path</span><span class="o">=</span><span class="s2">&quot;/path/to/chromedriver&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The rest of the example should work as given in other documentation.</p>
+</div>
+<div class="section" id="does-selenium-2-support-xpath-2-0">
+<h2>8.2. Does Selenium 2 support XPath 2.0 ?<a class="headerlink" href="#does-selenium-2-support-xpath-2-0" title="Permalink to this headline">¶</a></h2>
+<p>Ref: <a class="reference external" href="http://seleniumhq.org/docs/03_webdriver.html#how-xpath-works-in-webdriver">http://seleniumhq.org/docs/03_webdriver.html#how-xpath-works-in-webdriver</a></p>
+<p>Selenium delegates XPath queries down to the browser&#8217;s own XPath
+engine, so Selenium support XPath supports whatever the browser
+supports.  In browsers which don&#8217;t have native XPath engines (IE
+6,7,8), Selenium supports XPath 1.0 only.</p>
+</div>
+<div class="section" id="how-to-scroll-down-to-the-bottom-of-a-page">
+<h2>8.3. How to scroll down to the bottom of a page ?<a class="headerlink" href="#how-to-scroll-down-to-the-bottom-of-a-page" title="Permalink to this headline">¶</a></h2>
+<p>Ref: <a class="reference external" href="http://blog.varunin.com/2011/08/scrolling-on-pages-using-selenium.html">http://blog.varunin.com/2011/08/scrolling-on-pages-using-selenium.html</a></p>
+<p>You can use the <cite>execute_script</cite> method to execute javascript on the
+loaded page.  So, you can call the JavaScript API to scroll to the
+bottom or any other position of a page.</p>
+<p>Here is an example to scroll to the bottom of a page:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">driver</span><span class="o">.</span><span class="n">execute_script</span><span class="p">(</span><span class="s2">&quot;window.scrollTo(0, document.body.scrollHeight);&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <a class="reference external" href="http://www.w3schools.com/jsref/obj_window.asp">window</a> object
+in DOM has a <a class="reference external" href="http://www.w3schools.com/jsref/met_win_scrollto.asp">scrollTo</a> method to
+scroll to any position of an opened window.  The <a class="reference external" href="http://www.w3schools.com/jsref/dom_obj_all.asp">scrollHeight</a> is a common
+property for all elements.  The <cite>document.body.scrollHeight</cite> will give
+the height of the entire body of the page.</p>
+</div>
+<div class="section" id="how-to-auto-save-files-using-custom-firefox-profile">
+<h2>8.4. How to auto save files using custom Firefox profile ?<a class="headerlink" href="#how-to-auto-save-files-using-custom-firefox-profile" title="Permalink to this headline">¶</a></h2>
+<p>Ref: <a class="reference external" href="http://stackoverflow.com/questions/1176348/access-to-file-download-dialog-in-firefox">http://stackoverflow.com/questions/1176348/access-to-file-download-dialog-in-firefox</a></p>
+<p>Ref: <a class="reference external" href="http://blog.codecentric.de/en/2010/07/file-downloads-with-selenium-mission-impossible/">http://blog.codecentric.de/en/2010/07/file-downloads-with-selenium-mission-impossible/</a></p>
+<p>The first step is to identify the type of file you want to auto save.</p>
+<p>To identify the content type you want to download automatically, you
+can use <a class="reference external" href="http://curl.haxx.se/">curl</a>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">I</span> <span class="n">URL</span> <span class="o">|</span> <span class="n">grep</span> <span class="s2">&quot;Content-Type&quot;</span>
+</pre></div>
+</div>
+<p>Another way to find content type is using the <a class="reference external" href="http://python-requests.org">requests</a> module, you can use it like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">content_type</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="s1">&#39;http://www.python.org&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;content-type&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">content_type</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Once the content type is identified, you can use it to set the firefox
+profile preference: <code class="docutils literal"><span class="pre">browser.helperApps.neverAsk.saveToDisk</span></code></p>
+<p>Here is an example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">selenium</span> <span class="k">import</span> <span class="n">webdriver</span>
+
+<span class="n">fp</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">FirefoxProfile</span><span class="p">()</span>
+
+<span class="n">fp</span><span class="o">.</span><span class="n">set_preference</span><span class="p">(</span><span class="s2">&quot;browser.download.folderList&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">set_preference</span><span class="p">(</span><span class="s2">&quot;browser.download.manager.showWhenStarting&quot;</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">set_preference</span><span class="p">(</span><span class="s2">&quot;browser.download.dir&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">set_preference</span><span class="p">(</span><span class="s2">&quot;browser.helperApps.neverAsk.saveToDisk&quot;</span><span class="p">,</span> <span class="s2">&quot;application/octet-stream&quot;</span><span class="p">)</span>
+
+<span class="n">browser</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Firefox</span><span class="p">(</span><span class="n">firefox_profile</span><span class="o">=</span><span class="n">fp</span><span class="p">)</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://pypi.python.org/pypi/selenium&quot;</span><span class="p">)</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_partial_link_text</span><span class="p">(</span><span class="s2">&quot;selenium-2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In the above example, <code class="docutils literal"><span class="pre">application/octet-stream</span></code> is used as the
+content type.</p>
+<p>The <code class="docutils literal"><span class="pre">browser.download.dir</span></code> option specify the directory where you
+want to download the files.</p>
+</div>
+<div class="section" id="how-to-upload-files-into-file-inputs">
+<h2>8.5. How to upload files into file inputs ?<a class="headerlink" href="#how-to-upload-files-into-file-inputs" title="Permalink to this headline">¶</a></h2>
+<p>Select the <code class="docutils literal"><span class="pre">&lt;input</span> <span class="pre">type=&quot;file&quot;&gt;</span></code> element and call the <code class="docutils literal"><span class="pre">send_keys()</span></code> method passing
+the file path, either the path relative to the test script, or an absolute path.
+Keep in mind the differences in path names between Windows and Unix systems.</p>
+</div>
+<div class="section" id="how-to-use-firebug-with-firefox">
+<h2>8.6. How to use firebug with Firefox ?<a class="headerlink" href="#how-to-use-firebug-with-firefox" title="Permalink to this headline">¶</a></h2>
+<p>First download the Firebug XPI file, later you call the
+<code class="docutils literal"><span class="pre">add_extension</span></code> method available for the firefox profile:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">selenium</span> <span class="k">import</span> <span class="n">webdriver</span>
+
+<span class="n">fp</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">FirefoxProfile</span><span class="p">()</span>
+
+<span class="n">fp</span><span class="o">.</span><span class="n">add_extension</span><span class="p">(</span><span class="n">extension</span><span class="o">=</span><span class="s1">&#39;firebug-1.8.4.xpi&#39;</span><span class="p">)</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">set_preference</span><span class="p">(</span><span class="s2">&quot;extensions.firebug.currentVersion&quot;</span><span class="p">,</span> <span class="s2">&quot;1.8.4&quot;</span><span class="p">)</span> <span class="c1">#Avoid startup screen</span>
+<span class="n">browser</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Firefox</span><span class="p">(</span><span class="n">firefox_profile</span><span class="o">=</span><span class="n">fp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-to-take-screenshot-of-the-current-window">
+<h2>8.7. How to take screenshot of the current window ?<a class="headerlink" href="#how-to-take-screenshot-of-the-current-window" title="Permalink to this headline">¶</a></h2>
+<p>Use the <cite>save_screenshot</cite> method provided by the webdriver:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">selenium</span> <span class="k">import</span> <span class="n">webdriver</span>
+
+<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Firefox</span><span class="p">()</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://www.python.org/&#39;</span><span class="p">)</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">save_screenshot</span><span class="p">(</span><span class="s1">&#39;screenshot.png&#39;</span><span class="p">)</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="api.html" class="btn btn-neutral" title="7. WebDriver API" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2011-2014, Baiju Muthukadan.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
