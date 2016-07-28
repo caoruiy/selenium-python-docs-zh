@@ -1,7 +1,7 @@
 Selenium Python Bindings 中文翻译文档
 ======================================
 
-https://selenium-python-zh.readthedocs.io
+http://selenium-python-zh.readthedocs.io/en/latest/
 
 NOTE: 这不是一个官方的文档
 
