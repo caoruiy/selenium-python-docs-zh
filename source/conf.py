@@ -40,8 +40,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Selenium Python Bindings'
-copyright = u'2011-2014, Baiju Muthukadan'
+project = u'Selenium-Python中文文档 '
+copyright = u'2016 caoruiy'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
