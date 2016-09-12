@@ -3,10 +3,10 @@
 WebDriver API
 -------------
 
-.. note::
+.. 提醒::
 
-   This is not an official documentation.  Official API documentation
-   is available `here
+   这不是一个官方的文档.  但是你可以在这访问官方文档：
+   `官方文档
    <https://seleniumhq.github.io/selenium/docs/api/py/api.html>`_.
 
 This chapter cover all the interfaces of Selenium WebDriver.
