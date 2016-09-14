@@ -3,18 +3,17 @@
 页面对象
 ========
 
-This chapter is a tutorial introduction to page objects design
-pattern.  A page object represents an area in the web application user
-interface that your test is interacting.
+本章是一个针对页面对象设计模式的教程引导。
+一个页面对象表示在你测试的WEB应用程序的用户界面上的区域。
 
-Benefits of using page object pattern:
+使用页面对象模式的好处:
 
 * Creating reusable code that can be shared across multiple test cases
 * Reducing the amount of duplicated code
 * If the user interface changes, the fix needs changes in only one place
 
 
-Test case
+测试用例
 ~~~~~~~~~
 
 Here is a test case which searches for a word in python.org website
