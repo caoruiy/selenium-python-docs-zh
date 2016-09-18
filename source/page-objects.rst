@@ -8,16 +8,15 @@
 
 使用页面对象模式的好处:
 
-* Creating reusable code that can be shared across multiple test cases
-* Reducing the amount of duplicated code
-* If the user interface changes, the fix needs changes in only one place
+* 创建可复用的代码以便于在多个测试用例间共享
+* 减少重复的代码量
+* 如果用户界面变化，只需要修改一处
 
 
 测试用例
 ~~~~~~~~~
 
-Here is a test case which searches for a word in python.org website
-and ensure some results are found.
+下面是一个在python.org网站搜索一个词并保证一些结果可以找到的测试用例。
 
 ::
 
@@ -56,14 +55,13 @@ and ensure some results are found.
   if __name__ == "__main__":
       unittest.main()
 
-Page object classes
+页面对象类
 ~~~~~~~~~~~~~~~~~~~
 
-The page object pattern intends creating an object for each web page.
-By following this technique a layer of separation between the test
-code and technical implementation is created.
+页面对象为每个网页模拟创建出一个对象。
+按照此技术，在测试代码和技术实施之间的一个分离层被创建。
 
-The ``page.py`` will look like this::
+这个 ``page.py`` 看起来像这样::
 
   from element import BasePageElement
   from locators import MainPageLocators
@@ -106,10 +104,10 @@ The ``page.py`` will look like this::
           # element, but as for now it works fine
           return "No results found." not in self.driver.page_source
 
-Page elements
+页面元素
 ~~~~~~~~~~~~~
 
-The ``element.py`` will look like this::
+这个 ``element.py`` 看起来像这样::
 
   from selenium.webdriver.support.ui import WebDriverWait
 
@@ -132,14 +130,12 @@ The ``element.py`` will look like this::
           element = driver.find_element_by_name(self.locator)
           return element.get_attribute("value")
 
-Locators
+定位器
 ~~~~~~~~
 
-One of the practices is to separate the locator strings from the place
-where they are being used.  In this example, locators of the same page
-belong to same class.
+其中一个做法是，从它们正在使用的地方分离定位字符。在这个例子中，同一页面的定位器属于同一个类。
 
-The ``locators.py`` will look like this::
+这个 ``locators.py`` 看起来像这样::
 
   from selenium.webdriver.common.by import By
 
