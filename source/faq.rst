@@ -26,7 +26,7 @@ Selenium 2是否支持XPath 2.0版本？
 参考：http://seleniumhq.org/docs/03_webdriver.html#how-xpath-works-in-webdriver
 
 Selenium代表的XPath查询基于浏览器自身的XPath引擎，所以Selenium支持任何
-支持XPath的浏览器。在不具备原生的XPath引擎（IE6,7,8）浏览器，Selenium只支持XPath 1.0。
+支持XPath的浏览器。在不具备原生的XPath引擎（IE6,7,8）的浏览器，Selenium只支持XPath 1.0。
 
 
 如何向下滚动到页面的底部？
