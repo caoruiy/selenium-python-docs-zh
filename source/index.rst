@@ -3,7 +3,7 @@ Selenium with Python中文翻译文档
 ********************************
 
 :作者: `Baiju Muthukadan <https://muthukadan.net>`_
-:翻译: `caoruiy <http://blog.plcent.com>`_,  感谢 `yangeren <https://github.com/yangeren>`_的参与
+:翻译: `caoruiy <http://blog.plcent.com>`_,  感谢 `yangeren <https://github.com/yangeren>`_ 的参与
 :授权: This document is licensed under a
   `Creative Commons Attribution-ShareAlike 4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`_。
 
