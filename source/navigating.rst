@@ -198,9 +198,8 @@ when you call these methods if you’re used to the behaviour of one browser ove
 ~~~~~~~~~~~~~
 
 在我们结束这一节之前，或许你对如何操作Cookies可能会很感兴趣。
-首先，你需要打开一个也面，因为Cookie是在某个域名下才生效的::
+首先，你需要打开一个页面，因为Cookie是在某个域名下才生效的::
 
-::
 
   # 打开一个页面
   driver.get("http://www.example.com")
