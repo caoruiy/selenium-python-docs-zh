@@ -48,9 +48,13 @@ ExpectedCondition成功的返回结果是一个布尔类型的true或是不为nu
 自动化的Web浏览器中一些常用的预期条件，下面列出的是每一个实现，
 Selenium Python binding都提供了一些方便的方法，这样你就不用去编写
 expected_condition类或是创建至今的工具包去实现他们。
+
 - title_is
+
 - title_contains
+
 - presence_of_element_located
+
 - visibility_of_element_located
 - visibility_of
 - presence_of_all_elements_located
