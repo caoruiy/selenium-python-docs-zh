@@ -12,11 +12,12 @@
 
   from selenium import webdriver
   from selenium.webdriver.common.keys import Keys
+  from selenium.webdriver.common.by import By
 
   driver = webdriver.Firefox()
   driver.get("http://www.python.org")
   assert "Python" in driver.title
-  elem = driver.find_element_by_name("q")
+  elem = driver.find_element(By.NAME, "q")
   elem.clear()
   elem.send_keys("pycon")
   elem.send_keys(Keys.RETURN)
@@ -37,12 +38,13 @@
 
 `selenium.webdriver` 模块提供了所有WebDriver的实现，
 当前支持的WebDriver有： Firefox, Chrome, IE and Remote。
-`Keys`类提供键盘按键的支持，比如：RETURN, F1, ALT等
+`Keys`类提供键盘按键的支持，比如：RETURN, F1, ALT等。By 类用于定位文档中的元素。
 
 ::
 
   from selenium import webdriver
   from selenium.webdriver.common.keys import Keys
+  from selenium.webdriver.common.by import By
 
 接下来，创建一个Firefox WebDriver的实例
 
@@ -66,9 +68,14 @@ WebDriver可能不知道什么时候页面已经完全加载::
 
 WebDriver 提供了大量的方法让你去查询页面中的元素，这些方法形如： `find_element_by_*`。 
 例如：包含 `name` 属性的input输入框可以通过 `find_element_by_name` 方法查找到，
-详细的查找方法可以在第四节元素查找中查看::
+详细的查找方法可以在第四节元素查找中查看
 
-  elem = driver.find_element_by_name("q")
+WebDriver 提供了多种使用 `find_element` 方法查找元素的方法。
+例如：包含 `name` 属性的input输入框可以使用 `find_element` 方法并使用 `By.NAME` 作为其第一个参数，通过其 `name` 属性值来定位元素。查找元素的详细说明可在第四节元素中找到：
+
+::
+
+  elem = driver.find_element(By.NAME, "q")
 
 接下来，我们发送了一个关键字，这个方法的作用类似于你用键盘输入关键字。
 特殊的按键可以使用Keys类来输入，该类继承自 `selenium.webdriver.common.keys`，
@@ -106,6 +113,7 @@ a tool/framework are py.test and nose.
   import unittest
   from selenium import webdriver
   from selenium.webdriver.common.keys import Keys
+  from selenium.webdriver.common.by import By
 
   class PythonOrgSearch(unittest.TestCase):
 
@@ -116,11 +124,11 @@ a tool/framework are py.test and nose.
           driver = self.driver
           driver.get("http://www.python.org")
           self.assertIn("Python", driver.title)
-          elem = driver.find_element_by_name("q")
+          elem = driver.find_element(By.NAME, "q")
           elem.send_keys("pycon")
           elem.send_keys(Keys.RETURN)
-          assert "No results found." not in driver.page_source
-          
+          self.assertNotIn("No results found.", driver.page_source)
+
 
       def tearDown(self):
           self.driver.close()
@@ -148,13 +156,14 @@ a tool/framework are py.test and nose.
 <http://docs.python.org/library/unittest.html>`_  模块是基于JAVA JUnit的Python内置的模块。
 该模块提供了一个框架去组织测试用例。 `selenium.webdriver` 模块提供了所有WebDriver的实现。
 现在支持的WebDriver有：Firefox, Chrome, IE and Remote. `Keys` 类提供所有的键盘按键操作，比如像这样的：
- RETURN, F1, ALT等。
+ RETURN, F1, ALT等。By 类用于定位文档中的元素。
 
 ::
 
   import unittest
   from selenium import webdriver
   from selenium.webdriver.common.keys import Keys
+  from selenium.webdriver.common.by import By
 
 该测试类继承自 `unittest.TestCase`.
 继承 `TestCase` 类是告诉 `unittest` 模块该类是一个测试用例::
@@ -188,12 +197,10 @@ WebDriver 会等待整个页面加载完成（其实是等待"onload"事件执�
 
           self.assertIn("Python", driver.title)
 
+WebDriver 提供了多种使用 `find_element` 方法查找元素的方法。例如：包含 `name` 属性的input元素可以使用
+ `find_element`通过其 `By.NAME` 属性定位。详细的细节可以参照 :ref:`locating-elements` 章节::
 
-WebDriver 提供很多方法去查找页面值的元素，这些方法都以
-`find_element_by_*` 开头。  例如：包含 `name` 属性的input元素可以使用
- `find_element_by_name`方法查找到。详细的细节可以参照 :ref:`locating-elements` 章节::
-
-          elem = driver.find_element_by_name("q")
+  elem = driver.find_element(By.NAME, "q")
 
 接下来我们发送keys，这个和使用键盘输入keys类似。
 特殊的按键可以通过引入`selenium.webdriver.common.keys`的 `Keys` 类来输入
@@ -206,7 +213,7 @@ WebDriver 提供很多方法去查找页面值的元素，这些方法都以
 After submission of the page, you should get result as per search if
 ::
 
-  assert "No results found." not in driver.page_source
+  self.assertNotIn("No results found.", driver.page_source)
 
 `tearDown` 方法会在每一个测试方法执行之后被执行。
 该方法可以用来做一些清扫工作，比如关闭浏览器。
